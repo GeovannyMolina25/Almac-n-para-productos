@@ -1,5 +1,6 @@
 
 import express, {Application, Request, Response} from 'express';
+import cors from 'cors';
 import routeProductos from '../routes/producto'
 import db from '../db/connection';
 class Server{
@@ -31,6 +32,8 @@ class Server{
     midlewares(){
         //pasamos el body
         this.app.use(express.json());
+        //cors
+        this.app.use(cors());
     }
 
     async dbConnect(){
